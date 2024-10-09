@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.alviano.esemkaesport.databinding.ActivityLandingPageBinding
@@ -17,6 +18,8 @@ class LandingPageActivity : AppCompatActivity() {
         enableEdgeToEdge()
         binding = ActivityLandingPageBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
         binding.signinBtn.setOnClickListener {
             startActivity(Intent(this, SignInActivity::class.java))

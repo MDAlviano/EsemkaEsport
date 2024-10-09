@@ -95,6 +95,7 @@
                 android:id="@+id/usernameTxt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
                 android:hint="Username"
                 android:textColor="@color/black" />
         </com.google.android.material.textfield.TextInputLayout>
