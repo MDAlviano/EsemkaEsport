@@ -4,9 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.alviano.esemkaesport.R
 import com.alviano.esemkaesport.databinding.FragmentTimBinding
+import com.alviano.esemkaesport.mainscreen.pemain.PemainAdapter
 import com.alviano.esemkaesport.mainscreen.pemain.PemainFragment
 import kotlin.concurrent.fixedRateTimer
 
@@ -25,6 +27,17 @@ class TimFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val imgTim: Array<Int> = arrayOf(R.drawable.onic_logo, R.drawable.alter_ego, R.drawable.rrq_svg)
+        val dataTim: Array<String> = arrayOf("Onic", "AE", "RRQ")
+
+        val gridAdapter: PemainAdapter = PemainAdapter()
+        gridAdapter.gridAdapter(requireContext(), imgTim, dataTim)
+        binding.dataTim.adapter = gridAdapter
+
+        binding.dataTim.setOnItemClickListener { parent, view, position, id ->
+            Toast.makeText(requireContext(), "You Clicked on ${dataTim[position]}", Toast.LENGTH_SHORT).show()
+        }
 
         binding.timBtn.setOnClickListener {
             val timFragment = TimFragment()
