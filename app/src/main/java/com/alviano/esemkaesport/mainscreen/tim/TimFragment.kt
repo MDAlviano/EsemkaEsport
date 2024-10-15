@@ -36,7 +36,7 @@ class TimFragment : Fragment() {
         val imgTim: Array<Int> = arrayOf(R.drawable.onic_logo, R.drawable.alter_ego, R.drawable.rrq_svg)
         val dataTim: Array<String> = arrayOf("Onic", "AE", "RRQ")
 
-        val gridAdapter: PemainAdapter = PemainAdapter()
+        val gridAdapter: TimAdapter = TimAdapter()
         gridAdapter.gridAdapter(requireContext(), imgTim, dataTim)
         binding.dataTim.adapter = gridAdapter
 
