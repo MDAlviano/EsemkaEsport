@@ -34,14 +34,14 @@ class TimFragment : Fragment() {
         binding.dateTxt.text = currentDateTimeString.toString()
 
         val imgTim: Array<Int> = arrayOf(R.drawable.onic_logo, R.drawable.alter_ego, R.drawable.rrq_svg)
-        val dataTim: Array<String> = arrayOf("Onic", "AE", "RRQ")
+        val namaTim: Array<String> = arrayOf("Onic", "AE", "RRQ")
 
         val gridAdapter: TimAdapter = TimAdapter()
-        gridAdapter.gridAdapter(requireContext(), imgTim, dataTim)
+        gridAdapter.gridAdapter(requireContext(), imgTim, namaTim)
         binding.dataTim.adapter = gridAdapter
 
         binding.dataTim.setOnItemClickListener { parent, view, position, id ->
-            Toast.makeText(requireContext(), "You Clicked on ${dataTim[position]}", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "You Clicked on ${namaTim[position]}", Toast.LENGTH_SHORT).show()
         }
 
         binding.timBtn.setOnClickListener {

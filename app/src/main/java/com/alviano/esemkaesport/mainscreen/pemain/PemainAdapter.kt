@@ -12,19 +12,21 @@ import com.alviano.esemkaesport.R
 class PemainAdapter: BaseAdapter() {
 
     private lateinit var context: Context
-    private lateinit var imgTim: Array<Int>
-    private lateinit var timName: Array<String>
+    private lateinit var imgPemain: Array<Int>
+    private lateinit var pemainName: Array<String>
+    private lateinit var pemainRole: Array<String>
     private lateinit var inflater: LayoutInflater
 
-    fun gridAdapter(context: Context, imgTim: Array<Int>, timName: Array<String>) {
+    fun gridAdapter(context: Context, imgPemain: Array<Int>, pemainName: Array<String>, pemainRole: Array<String>) {
         this.context = context
-        this.imgTim = imgTim
-        this.timName = timName
+        this.imgPemain = imgPemain
+        this.pemainName = pemainName
+        this.pemainRole = pemainRole
         this.inflater = LayoutInflater.from(context) // Inisialisasi inflater
     }
 
     override fun getCount(): Int {
-        return timName.size
+        return pemainName.size
     }
 
     override fun getItem(p0: Int): Any? {
@@ -37,15 +39,15 @@ class PemainAdapter: BaseAdapter() {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         // Gunakan var view untuk menampung convertView atau inflate jika null
-        val view = convertView ?: inflater.inflate(R.layout.team_viewholder, parent, false)
+        val view = convertView ?: inflater.inflate(R.layout.pemain_viewholder, parent, false)
 
         // Gunakan findViewById secara aman tanpa !! untuk menghindari NullPointerException
         val imageView: ImageView = view.findViewById(R.id.imageTeamTxt)
         val textView: TextView = view.findViewById(R.id.teamNameTxt)
 
         // Atur data ke imageView dan textView
-        imageView.setImageResource(imgTim[position])
-        textView.text = timName[position]
+        imageView.setImageResource(imgPemain[position])
+        textView.text = pemainName[position]
 
         // Kembalikan view yang tidak null
         return view

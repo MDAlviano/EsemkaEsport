@@ -4,9 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.alviano.esemkaesport.R
 import com.alviano.esemkaesport.databinding.FragmentPemainBinding
+import com.alviano.esemkaesport.mainscreen.tim.TimAdapter
 import com.alviano.esemkaesport.mainscreen.tim.TimFragment
 import java.util.Date
 
@@ -28,6 +30,18 @@ class PemainFragment : Fragment() {
 
         val currentDateTimeString = java.text.DateFormat.getDateTimeInstance().format(Date())
         binding.dateTxt.text = currentDateTimeString.toString()
+
+        val imgPemain: Array<Int> = arrayOf(R.drawable.alberttt, R.drawable.kairi)
+        val namaPemain: Array<String> = arrayOf("Albertt", "Kairi")
+        val rolePemain: Array<String> = arrayOf("Jungler", "Jungler")
+
+        val gridAdapter: PemainAdapter = PemainAdapter()
+        gridAdapter.gridAdapter(requireContext(), imgPemain, namaPemain)
+        binding.dataPemain.adapter = gridAdapter
+
+        binding.dataPemain.setOnItemClickListener { parent, view, position, id ->
+            Toast.makeText(requireContext(), "You Clicked on ${namaPemain[position]}", Toast.LENGTH_SHORT).show()
+        }
 
         binding.pemainBtn.setOnClickListener {
             val pemainFragment = PemainFragment()
