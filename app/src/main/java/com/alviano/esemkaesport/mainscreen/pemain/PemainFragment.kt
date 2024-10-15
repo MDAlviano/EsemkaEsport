@@ -36,7 +36,7 @@ class PemainFragment : Fragment() {
         val rolePemain: Array<String> = arrayOf("Jungler", "Jungler")
 
         val gridAdapter: PemainAdapter = PemainAdapter()
-        gridAdapter.gridAdapter(requireContext(), imgPemain, namaPemain)
+        gridAdapter.gridAdapter(requireContext(), imgPemain, namaPemain, rolePemain)
         binding.dataPemain.adapter = gridAdapter
 
         binding.dataPemain.setOnItemClickListener { parent, view, position, id ->

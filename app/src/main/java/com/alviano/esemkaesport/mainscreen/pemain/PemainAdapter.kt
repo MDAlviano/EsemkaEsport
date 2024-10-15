@@ -8,6 +8,7 @@ import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import com.alviano.esemkaesport.R
+import org.w3c.dom.Text
 
 class PemainAdapter: BaseAdapter() {
 
@@ -42,12 +43,14 @@ class PemainAdapter: BaseAdapter() {
         val view = convertView ?: inflater.inflate(R.layout.pemain_viewholder, parent, false)
 
         // Gunakan findViewById secara aman tanpa !! untuk menghindari NullPointerException
-        val imageView: ImageView = view.findViewById(R.id.imageTeamTxt)
-        val textView: TextView = view.findViewById(R.id.teamNameTxt)
+        val imageView: ImageView = view.findViewById(R.id.imagePemainTxt)
+        val textView: TextView = view.findViewById(R.id.pemainNameTxt)
+        val roleText: TextView = view.findViewById(R.id.rolePemainTxt)
 
         // Atur data ke imageView dan textView
         imageView.setImageResource(imgPemain[position])
         textView.text = pemainName[position]
+        roleText.text = pemainRole[position]
 
         // Kembalikan view yang tidak null
         return view
