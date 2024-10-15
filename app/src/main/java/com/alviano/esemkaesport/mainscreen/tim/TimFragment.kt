@@ -1,5 +1,6 @@
 package com.alviano.esemkaesport.mainscreen.tim
 
+import android.icu.text.DateFormat
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,7 +11,7 @@ import com.alviano.esemkaesport.R
 import com.alviano.esemkaesport.databinding.FragmentTimBinding
 import com.alviano.esemkaesport.mainscreen.pemain.PemainAdapter
 import com.alviano.esemkaesport.mainscreen.pemain.PemainFragment
-import kotlin.concurrent.fixedRateTimer
+import java.util.Date
 
 class TimFragment : Fragment() {
 
@@ -27,6 +28,10 @@ class TimFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val currentDateTimeString = java.text.DateFormat.getDateTimeInstance().format(Date())
+
+        binding.dateTxt.text = currentDateTimeString.toString()
 
         val imgTim: Array<Int> = arrayOf(R.drawable.onic_logo, R.drawable.alter_ego, R.drawable.rrq_svg)
         val dataTim: Array<String> = arrayOf("Onic", "AE", "RRQ")
