@@ -8,6 +8,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.alviano.esemkaesport.databinding.ActivitySignInBinding
 import com.alviano.esemkaesport.mainscreen.MainScreenActivity
+import com.alviano.esemkaesport.mainscreen.tim.TimFragment
 import org.json.JSONObject
 import java.io.BufferedOutputStream
 import java.io.BufferedReader
@@ -91,7 +92,9 @@ class SignInActivity : AppCompatActivity() {
                 if (accessToken.isNotEmpty()) {
                     Toast.makeText(this@SignInActivity, "Login Berhasil!", Toast.LENGTH_SHORT)
                         .show()
-                    startActivity(Intent(this@SignInActivity, MainScreenActivity::class.java))
+                    val i = Intent(this@SignInActivity, MainScreenActivity::class.java)
+                    i.putExtra("username_key", username)  // Mengirim username ke MainScreenActivity
+                    startActivity(i)
                     finish()
                 } else {
                     Toast.makeText(this@SignInActivity, "Login Gagal!", Toast.LENGTH_SHORT).show()

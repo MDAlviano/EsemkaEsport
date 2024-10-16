@@ -21,6 +21,15 @@ class MainScreenActivity : AppCompatActivity() {
         val fragmentTim = TimFragment()
         val fragment = mFragmentManager.findFragmentByTag(TimFragment::class.java.simpleName)
 
+        // Ambil username dari Intent
+        val username = intent.getStringExtra("username_key")
+
+        // Buat instance TimFragment dan kirim username melalui Bundle
+        val timFragment = TimFragment()
+        val bundle = Bundle()
+        bundle.putString("username_key", username)
+        timFragment.arguments = bundle
+
         if (fragment !is TimFragment) {
             mFragmentManager
                 .beginTransaction()
