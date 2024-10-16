@@ -30,8 +30,7 @@ class TimFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // Ambil username dari arguments
-        val username = arguments?.getString("username_key")
-
+        val username = arguments?.getString("username_key", "Guest")
         // Tampilkan username di TextView dengan ID nameTxt
         binding.nameTxt.text = "Halo $username 👋"
 

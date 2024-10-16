@@ -28,6 +28,11 @@ class PemainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Ambil username dari arguments dan set ke TextView nameTxt
+        val username = arguments?.getString("username_key", "Guest")
+        binding.nameTxt.text = "Halo $username 👋"
+
+
         val currentDateTimeString = java.text.DateFormat.getDateTimeInstance().format(Date())
         binding.dateTxt.text = currentDateTimeString.toString()
 

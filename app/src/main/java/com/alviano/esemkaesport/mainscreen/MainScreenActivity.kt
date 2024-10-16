@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ReportFragment.Companion.reportFragment
 import com.alviano.esemkaesport.R
 import com.alviano.esemkaesport.databinding.ActivityMainScreenBinding
+import com.alviano.esemkaesport.mainscreen.pemain.PemainFragment
 import com.alviano.esemkaesport.mainscreen.tim.TimFragment
 
 class MainScreenActivity : AppCompatActivity() {
@@ -26,9 +27,11 @@ class MainScreenActivity : AppCompatActivity() {
 
         // Buat instance TimFragment dan kirim username melalui Bundle
         val timFragment = TimFragment()
+        val pemainFragment = PemainFragment()
         val bundle = Bundle()
         bundle.putString("username_key", username)
         timFragment.arguments = bundle
+        pemainFragment.arguments = bundle
 
         if (fragment !is TimFragment) {
             mFragmentManager
