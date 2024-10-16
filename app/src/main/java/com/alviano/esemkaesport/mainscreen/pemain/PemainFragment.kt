@@ -31,8 +31,8 @@ class PemainFragment : Fragment() {
 
         // Ambil username dari arguments dan set ke TextView nameTxt
         val username = arguments?.getString("username_key") ?: "Guest"
-        binding.nameTxt.text = "Halo $username 👋"
         Log.d("PemainFragment", "Received username: $username")
+        binding.nameTxt.text = "Halo $username 👋"
 
         val currentDateTimeString = java.text.DateFormat.getDateTimeInstance().format(Date())
         binding.dateTxt.text = currentDateTimeString.toString()

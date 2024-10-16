@@ -32,9 +32,9 @@ class TimFragment : Fragment() {
 
         // Ambil username dari arguments
         val username = arguments?.getString("username_key") ?: "Guest"
+        Log.d("TimFragment", "Received username: $username")
         // Tampilkan username di TextView dengan ID nameTxt
         binding.nameTxt.text = "Halo $username 👋"
-        Log.d("TimFragment", "Received username: $username")
 
         val currentDateTimeString = java.text.DateFormat.getDateTimeInstance().format(Date())
 

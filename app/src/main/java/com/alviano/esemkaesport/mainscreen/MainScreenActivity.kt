@@ -27,14 +27,16 @@ class MainScreenActivity : AppCompatActivity() {
         val username = intent.getStringExtra("username_key")
 
         // Buat instance TimFragment dan kirim username melalui Bundle
-        val timFragment = TimFragment()
 //        val pemainFragment = PemainFragment()
         val bundle = Bundle()
         bundle.putString("username_key", username)
+
+        Log.d("MainScreenActivity", "Username sent: $username")
+
+        val timFragment = TimFragment()
         timFragment.arguments = bundle
 //        pemainFragment.arguments = bundle
 
-        Log.d("MainScreenActivity", "Username sent: $username")
 
         if (fragment == null) {
             if (fragment !is TimFragment) {

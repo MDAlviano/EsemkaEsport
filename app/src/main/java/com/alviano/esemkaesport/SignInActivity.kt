@@ -3,6 +3,7 @@ package com.alviano.esemkaesport
 import android.content.Intent
 import android.os.AsyncTask
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -94,6 +95,7 @@ class SignInActivity : AppCompatActivity() {
                         .show()
                     val i = Intent(this@SignInActivity, MainScreenActivity::class.java)
                     i.putExtra("username_key", username)  // Mengirim username ke MainScreenActivity
+                    Log.d("SignInActivity", "Sending username: $username")
                     startActivity(i)
                     finish()
                 } else {
