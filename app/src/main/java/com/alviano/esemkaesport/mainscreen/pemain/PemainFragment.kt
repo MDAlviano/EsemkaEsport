@@ -29,7 +29,7 @@ class PemainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // Ambil username dari arguments dan set ke TextView nameTxt
-        val username = arguments?.getString("username_key", "Guest")
+        val username = arguments?.getString("username_key") ?: "Guest"
         binding.nameTxt.text = "Halo $username 👋"
 
 
