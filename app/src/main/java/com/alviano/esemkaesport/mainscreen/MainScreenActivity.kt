@@ -1,6 +1,7 @@
 package com.alviano.esemkaesport.mainscreen
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ReportFragment.Companion.reportFragment
 import com.alviano.esemkaesport.R
@@ -27,17 +28,22 @@ class MainScreenActivity : AppCompatActivity() {
 
         // Buat instance TimFragment dan kirim username melalui Bundle
         val timFragment = TimFragment()
-        val pemainFragment = PemainFragment()
+//        val pemainFragment = PemainFragment()
         val bundle = Bundle()
         bundle.putString("username_key", username)
         timFragment.arguments = bundle
-        pemainFragment.arguments = bundle
+//        pemainFragment.arguments = bundle
 
-        if (fragment !is TimFragment) {
-            mFragmentManager
-                .beginTransaction()
-                .add(R.id.main_fragment_container, fragmentTim, TimFragment::class.java.simpleName)
-                .commit()
+        Log.d("MainScreenActivity", "Username sent: $username")
+
+        if (fragment == null) {
+            if (fragment !is TimFragment) {
+                mFragmentManager
+                    .beginTransaction()
+                    .add(R.id.main_fragment_container, fragmentTim, TimFragment::class.java.simpleName)
+                    .commit()
+            }
         }
+
     }
 }

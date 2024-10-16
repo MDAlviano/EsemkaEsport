@@ -1,6 +1,7 @@
 package com.alviano.esemkaesport.mainscreen.pemain
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -31,7 +32,7 @@ class PemainFragment : Fragment() {
         // Ambil username dari arguments dan set ke TextView nameTxt
         val username = arguments?.getString("username_key") ?: "Guest"
         binding.nameTxt.text = "Halo $username 👋"
-
+        Log.d("PemainFragment", "Received username: $username")
 
         val currentDateTimeString = java.text.DateFormat.getDateTimeInstance().format(Date())
         binding.dateTxt.text = currentDateTimeString.toString()

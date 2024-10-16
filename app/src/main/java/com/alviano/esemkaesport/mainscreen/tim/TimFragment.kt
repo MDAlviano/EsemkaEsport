@@ -2,6 +2,7 @@ package com.alviano.esemkaesport.mainscreen.tim
 
 import android.icu.text.DateFormat
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -33,6 +34,7 @@ class TimFragment : Fragment() {
         val username = arguments?.getString("username_key") ?: "Guest"
         // Tampilkan username di TextView dengan ID nameTxt
         binding.nameTxt.text = "Halo $username 👋"
+        Log.d("TimFragment", "Received username: $username")
 
         val currentDateTimeString = java.text.DateFormat.getDateTimeInstance().format(Date())
 
