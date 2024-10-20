@@ -1,22 +1,23 @@
 package com.alviano.esemkaesport.mainscreen.tim
 
-import android.icu.text.DateFormat
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
 import com.alviano.esemkaesport.R
+import com.alviano.esemkaesport.data.Team
 import com.alviano.esemkaesport.databinding.FragmentTimBinding
-import com.alviano.esemkaesport.mainscreen.pemain.PemainAdapter
 import com.alviano.esemkaesport.mainscreen.pemain.PemainFragment
 import java.util.Date
 
 class TimFragment : Fragment() {
 
     private lateinit var binding: FragmentTimBinding
+
+    private val listTim = ArrayList<Team>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,16 +41,8 @@ class TimFragment : Fragment() {
 
         binding.dateTxt.text = currentDateTimeString.toString()
 
-        val imgTim: Array<Int> = arrayOf(R.drawable.onic_logo, R.drawable.alter_ego, R.drawable.rrq_svg)
-        val namaTim: Array<String> = arrayOf("Onic", "AE", "RRQ")
-
-        val gridAdapter: TimAdapter = TimAdapter()
-        gridAdapter.gridAdapter(requireContext(), imgTim, namaTim)
-        binding.dataTim.adapter = gridAdapter
-
-        binding.dataTim.setOnItemClickListener { parent, view, position, id ->
-            Toast.makeText(requireContext(), "You Clicked on ${namaTim[position]}", Toast.LENGTH_SHORT).show()
-        }
+        listTim.addAll(getListPlace())
+        showRecyclerView()
 
         binding.timBtn.setOnClickListener {
             val timFragment = TimFragment()
@@ -80,6 +73,23 @@ class TimFragment : Fragment() {
                     commit()
                 }
         }
+    }
+
+    private fun getListPlace(): ArrayList<Team> {
+        val dataName = resources.getStringArray(R.array.data_tim)
+        val logoTim = resources.obtainTypedArray(R.array.logo_tim)
+        val listPlace = ArrayList<Team>()
+        for (i in dataName.indices) {
+            val place = Team(dataName[i], logoTim.getResourceId(i, -1))
+            listPlace.add(place)
+        }
+        return listPlace
+    }
+
+    private fun showRecyclerView() {
+        binding.dataTim.layoutManager = GridLayoutManager(requireContext(), 2)
+        val timAdapter = TimAdapter(listTim)
+        binding.dataTim.adapter = timAdapter
     }
 
 }

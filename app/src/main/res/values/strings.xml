@@ -2,4 +2,35 @@
     <string name="app_name">Esemka-Esport</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="data_tim">
+        <item>AE</item>
+        <item>AURA</item>
+        <item>BTR</item>
+        <item>EVOS</item>
+        <item>REBELION</item>
+        <item>ONIC</item>
+        <item>RRQ</item>
+    </string-array>
+
+    <integer-array name="logo_tim">
+        <item>@drawable/alter_ego</item>
+        <item>@drawable/aura_esport</item>
+        <item>@drawable/btr</item>
+        <item>@drawable/logo_evos</item>
+        <item>@drawable/rebellion</item>
+        <item>@drawable/onic_logo</item>
+        <item>@drawable/rrq</item>
+    </integer-array>
+
+    <string-array name="data_pemain">
+        <item>Alberttt</item>
+        <item>Kairi</item>
+    </string-array>
+
+    <integer-array name="photo_pemain">
+        <item>@drawable/alberttt</item>
+        <item>@drawable/kairi</item>
+    </integer-array>
+
 </resources>
