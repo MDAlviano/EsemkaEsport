@@ -78,12 +78,12 @@ class TimFragment : Fragment() {
     private fun getListPlace(): ArrayList<Team> {
         val dataName = resources.getStringArray(R.array.data_tim)
         val logoTim = resources.obtainTypedArray(R.array.logo_tim)
-        val listPlace = ArrayList<Team>()
+        val listTim = ArrayList<Team>()
         for (i in dataName.indices) {
             val place = Team(dataName[i], logoTim.getResourceId(i, -1))
-            listPlace.add(place)
+            listTim.add(place)
         }
-        return listPlace
+        return listTim
     }
 
     private fun showRecyclerView() {

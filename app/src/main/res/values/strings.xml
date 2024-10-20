@@ -28,6 +28,11 @@
         <item>Kairi</item>
     </string-array>
 
+    <string-array name="role_pemain">
+        <item>Jungler</item>
+        <item>Jungler</item>
+    </string-array>
+
     <integer-array name="photo_pemain">
         <item>@drawable/alberttt</item>
         <item>@drawable/kairi</item>
