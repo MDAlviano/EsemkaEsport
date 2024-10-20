@@ -26,16 +26,19 @@
     <string-array name="data_pemain">
         <item>Alberttt</item>
         <item>Kairi</item>
+        <item>Adi</item>
     </string-array>
 
     <string-array name="role_pemain">
         <item>Jungler</item>
         <item>Jungler</item>
+        <item>Analyst</item>
     </string-array>
 
     <integer-array name="photo_pemain">
         <item>@drawable/alberttt</item>
         <item>@drawable/kairi</item>
+        <item>@drawable/kuch_adi</item>
     </integer-array>
 
 </resources>

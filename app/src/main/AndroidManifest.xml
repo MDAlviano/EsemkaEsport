@@ -17,6 +17,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".DetailPemainActivity"
+            android:exported="false" />
+        <activity
             android:name=".LandingPageActivity"
             android:exported="true">
             <intent-filter>
@@ -30,10 +33,10 @@
             android:exported="false" />
         <activity
             android:name=".SignInActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".mainscreen.MainScreenActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
     </application>
 
 </manifest>

@@ -1,17 +1,17 @@
 package com.alviano.esemkaesport.mainscreen.pemain
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
+import com.alviano.esemkaesport.DetailPemainActivity
 import com.alviano.esemkaesport.R
 import com.alviano.esemkaesport.data.Pemain
 import com.alviano.esemkaesport.databinding.FragmentPemainBinding
-import com.alviano.esemkaesport.mainscreen.tim.TimAdapter
 import com.alviano.esemkaesport.mainscreen.tim.TimFragment
 import java.util.Date
 
@@ -51,7 +51,11 @@ class PemainFragment : Fragment() {
             val pemainFragment = PemainFragment()
             val mFragmentManage = parentFragmentManager
             mFragmentManage.beginTransaction().apply {
-                replace(R.id.main_fragment_container, pemainFragment, PemainFragment::class.java.simpleName)
+                replace(
+                    R.id.main_fragment_container,
+                    pemainFragment,
+                    PemainFragment::class.java.simpleName
+                )
                 addToBackStack(null)
                 commit()
             }
@@ -61,7 +65,11 @@ class PemainFragment : Fragment() {
             val timFragment = TimFragment()
             val mFragmentManager = parentFragmentManager
             mFragmentManager.beginTransaction().apply {
-                replace(R.id.main_fragment_container, timFragment, TimFragment::class.java.simpleName)
+                replace(
+                    R.id.main_fragment_container,
+                    timFragment,
+                    TimFragment::class.java.simpleName
+                )
                 addToBackStack(null)
                 commit()
             }
@@ -72,6 +80,18 @@ class PemainFragment : Fragment() {
         binding.dataPemain.layoutManager = GridLayoutManager(requireContext(), 2)
         val pemainAdapter = PemainAdapter(listPemain)
         binding.dataPemain.adapter = pemainAdapter
+
+        pemainAdapter.setOnItemClickCallback(object : PemainAdapter.OnItemClickCallback {
+            override fun onItemClicked(data: Pemain) {
+                sendDataToDetailPemain(data)
+            }
+        })
+    }
+
+    private fun sendDataToDetailPemain(data: Pemain) {
+        val intentDetail = Intent(requireContext(), DetailPemainActivity::class.java)
+        intentDetail.putExtra("data_pemain", data)
+        startActivity(intentDetail)
     }
 
     private fun getListPlace(): ArrayList<Pemain> {
