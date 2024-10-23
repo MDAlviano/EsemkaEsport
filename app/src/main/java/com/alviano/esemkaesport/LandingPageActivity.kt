@@ -5,8 +5,7 @@ import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.alviano.esemkaesport.databinding.ActivityLandingPageBinding
 
 class LandingPageActivity : AppCompatActivity() {
@@ -16,6 +15,7 @@ class LandingPageActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        installSplashScreen()
         binding = ActivityLandingPageBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
