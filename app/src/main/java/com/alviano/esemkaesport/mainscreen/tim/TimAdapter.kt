@@ -15,12 +15,12 @@ import com.alviano.esemkaesport.databinding.TeamViewholderBinding
 class TimAdapter(private val listTim: ArrayList<Team>) :
     RecyclerView.Adapter<TimAdapter.MyViewHolder>() {
 
-    private lateinit var onTeamCLickCallback: OnTeamCLickCallback
+    private lateinit var onTeamClickCallback: OnTeamClickCallback
 
     class MyViewHolder(var binding: TeamViewholderBinding) : RecyclerView.ViewHolder(binding.root)
 
-    fun setOnTeamClickCallback(onTeamCLickCallback: OnTeamCLickCallback) {
-        this.onTeamCLickCallback = onTeamCLickCallback
+    fun setOnTeamClickCallback(onTeamClickCallback: OnTeamClickCallback) {
+        this.onTeamClickCallback = onTeamClickCallback
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -35,10 +35,11 @@ class TimAdapter(private val listTim: ArrayList<Team>) :
         val (name, logo) = listTim[position]
         holder.binding.teamNameTxt.text = name
         holder.binding.imageTeamTxt.setImageResource(logo)
+        holder.itemView.setOnClickListener { onTeamClickCallback.onTeamCLicked(listTim[holder.adapterPosition]) }
     }
 
-    interface OnTeamCLickCallback {
-        fun onTeamClicked(data: Team)
+    interface OnTeamClickCallback {
+        fun onTeamCLicked(data: Team)
     }
 
 }
