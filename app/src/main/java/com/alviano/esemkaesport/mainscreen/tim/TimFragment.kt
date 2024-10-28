@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.alviano.esemkaesport.R
@@ -90,6 +91,12 @@ class TimFragment : Fragment() {
         binding.dataTim.layoutManager = GridLayoutManager(requireContext(), 2)
         val timAdapter = TimAdapter(listTim)
         binding.dataTim.adapter = timAdapter
+
+        timAdapter.setOnTeamClickCallback(object : TimAdapter.OnTeamCLickCallback {
+            override fun onTeamClicked(data: Team) {
+                Toast.makeText(requireContext(),  "Kamu nge-click : ${data.name}", Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 
 }
